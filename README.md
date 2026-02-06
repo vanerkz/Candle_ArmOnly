@@ -89,7 +89,7 @@ This will start both the **RViz** and **Gazebo** simulations, where you can cont
 * Product information can be found here:
   [Feetech RS485 Series Servos](https://www.feetechrc.com/products/sms_rs485_series%20servo-page-1)
 
-Feetech controls related files can be found at:
+* Feetech control-related files can be found at [location]. (Note that you can ignore these files if you're not working with a physical robot.):
 
 ```
 .../catkin_ws/src/feetech 
