@@ -1,4 +1,4 @@
-# Feetech Arm Simulation with ROS Noetic and MoveIt
+# Candle_ArmOnly-Feetech Arm Simulation with ROS Noetic and MoveIt
 
 This repository provides instructions for setting up a Feetech robotic arm simulation in Gazebo and controlling it with RViz using ROS Noetic and MoveIt. The simulation is designed to work with Feetech's RS485 Modbus-RTU servos.
 
