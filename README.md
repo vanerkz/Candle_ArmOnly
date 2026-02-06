@@ -1,167 +1,128 @@
-# Candle_ArmOnly
+Sure! Below is a template for your README file based on the provided information. You can use this for a GitHub repository.
 
-Here’s a more structured format for your README file using common conventions. It’s organized with headers, subheaders, bullet points, and code blocks for better clarity.
+---
 
-````markdown
 # Feetech Arm Simulation with ROS Noetic and MoveIt
 
-This repository provides instructions for setting up and running a **Feetech robotic arm simulation** in **Gazebo** and controlling it with **RViz** using **ROS Noetic** and **MoveIt**. The robot utilizes **Feetech RS485 Modbus-RTU servos**.
-
-## Table of Contents
-
-- [Requirements](#requirements)
-- [Installation](#installation)
-  - [Install ROS Noetic](#install-ros-noetic)
-  - [Install MoveIt](#install-moveit)
-  - [Clone the Repository](#clone-the-repository)
-  - [Build the Workspace](#build-the-workspace)
-  - [Run the Simulation](#run-the-simulation)
-- [Simulation Environment](#simulation-environment)
-  - [RViz](#rviz)
-  - [Gazebo](#gazebo)
-- [Robot Description](#robot-description)
-  - [URDF Files](#urdf-files)
-  - [Mesh Files](#mesh-files)
-  - [Servos Used](#servos-used)
-- [Adjusting Robot Height](#adjusting-robot-height)
-- [Troubleshooting](#troubleshooting)
-- [License](#license)
+This repository provides instructions for setting up a Feetech robotic arm simulation in Gazebo and controlling it with RViz using ROS Noetic and MoveIt. The simulation is designed to work with Feetech's RS485 Modbus-RTU servos.
 
 ## Requirements
 
-- **Operating System**: Ubuntu 20.04
-- **ROS Version**: Noetic
-- **ROS Packages**:
-  - [ROS Noetic Installation](https://wiki.ros.org/noetic/Installation/Ubuntu)
-  - [MoveIt](https://moveit.github.io/moveit_tutorials/doc/getting_started/getting_started.html)
+* **Operating System**: Ubuntu 20.04
+* **ROS Version**: Noetic
+* **ROS Packages**:
+
+  * [ROS Noetic](https://wiki.ros.org/noetic/Installation/Ubuntu)
+  * [MoveIt](https://moveit.github.io/moveit_tutorials/doc/getting_started/getting_started.html)
 
 ## Installation
 
-### Install ROS Noetic
+### 1. Install ROS Noetic
+
 Follow the official guide to install ROS Noetic on Ubuntu 20.04:
 [ROS Noetic Installation](https://wiki.ros.org/noetic/Installation/Ubuntu)
 
-### Install MoveIt
-Install MoveIt for ROS Noetic by following the [MoveIt Getting Started Tutorial](https://moveit.github.io/moveit_tutorials/doc/getting_started/getting_started.html).
+### 2. Install MoveIt
 
-### Clone the Repository
+Follow the official MoveIt tutorial to install and set up MoveIt with ROS Noetic:
+[MoveIt Getting Started](https://moveit.github.io/moveit_tutorials/doc/getting_started/getting_started.html)
+
+### 3. Clone the repository and setup your workspace
 
 ```bash
 # Create the catkin workspace
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
 
-# Clone this repository
+# Clone the repository
 git clone <repository_url>
-````
 
-### Build the Workspace
-
-```bash
+# Install dependencies
 cd ~/catkin_ws
 rosdep install --from-paths src --ignore-src -r -y
+
+# Build the workspace
 catkin_make
 source devel/setup.bash
 ```
 
-### Run the Simulation
+### 4. Launch the Simulation
 
-To launch the robot arm simulation, use the following command:
+Run the following command to launch the arm simulation:
 
 ```bash
 roslaunch arm_only demo_gazebo.launch
 ```
 
-This will launch both **RViz** and **Gazebo**, allowing you to control the robot from **RViz** and see the movement in **Gazebo**.
+This will start both the **RViz** and **Gazebo** simulations, where you can control the robot from RViz and see its movement in Gazebo.
 
 ## Simulation Environment
 
-### RViz
+### RViz:
 
-* **RViz** is used for controlling and visualizing the robot in 3D.
-* You can move joints and visualize the robot's movements in real-time.
+* Used to control and visualize the robot.
+* Allows you to move the arm joints and visualize the results.
+![Robot Arm Simulation](images/rviz.png)
+### Gazebo:
 
-### Gazebo
+* Provides a realistic physics simulation of the robot's movements.
+* Displays the robot in a 3D environment.
+![Robot Arm Simulation](images/gazabo.png)
 
-* **Gazebo** provides a physics-based simulation of the robot in a realistic 3D environment.
-* You can observe the actual motions of the robot in the simulated world.
+### Robot Description
 
-## Robot Description
+* The robot's URDF (Unified Robot Description Format) files are located at:
 
-### URDF Files
+  ```
+  ../catkin_ws/src/urdf_tutorial/urdf/feetecharm.urdf.xacro
+  ```
 
-The **robot's URDF** (Unified Robot Description Format) file is located at:
+* The robot's mesh files (STL files) are located at:
 
-```
-../catkin_ws/src/urdf_tutorial/urdf/feetecharm.urdf.xacro
-```
+  ```
+  ../catkin_ws/src/urdf_tutorial/meshes
+  ```
 
-### Mesh Files
+* The robot uses Feetech RS485 Modbus-RTU servos. The specific servos are:
 
-The **mesh files** (STL files) for the robot are located at:
+  * 2x 24V 45kg RS485 Modbus-RTU servo
+  * 2x 12V 85kg RS485 Modbus-RTU servo
+  * 2x 12V 120kg RS485 Modbus-RTU servo
+  * 1x 12V 180kg RS485 serial bus servo
 
-```
-/home/robot/catkin_ws/src/urdf_tutorial/meshes
-```
+* Product information can be found here:
+  [Feetech RS485 Series Servos](https://www.feetechrc.com/products/sms_rs485_series%20servo-page-1)
 
-### Servos Used
+### Adjusting Robot Height
 
-The robot uses **Feetech RS485 Modbus-RTU servos**. The specific models are:
-
-* 2x 24V 45kg RS485 Modbus-RTU servos
-* 2x 12V 85kg RS485 Modbus-RTU servos
-* 2x 12V 120kg RS485 Modbus-RTU servos
-* 1x 12V 180kg RS485 serial bus servo
-
-You can find more information about these servos at [Feetech RS485 Series Servos](https://www.feetechrc.com/products/sms_rs485_series%20servo-page-1).
-
-## Adjusting Robot Height
-
-To adjust the robot's height in the **Gazebo** simulation, edit the following line in the `gazebo_feetech.urdf` file:
+To adjust the height of the robot in the Gazebo simulation, modify the following line in the `gazebo_feetech.urdf` file:
 
 ```xml
 <origin rpy="0 0 0" xyz="0 0 1" />
 ```
 
-This is located at:
+Change the `z` value to the desired height. The file can be found at:
 
 ```
 ../catkin_ws/src/arm_only/config/gazebo_feetech.urdf
 ```
 
-Change the `z` value to set the desired height for the robot.
-
-Example to set the robot's height to 1.5 meters:
+Example to change height:
 
 ```xml
 <joint name="world_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 1.5" />
+    <origin rpy="0 0 0" xyz="0 0 <desired_z_value>" />
     <parent link="world" />
     <child link="base_link" />
 </joint>
 ```
 
-## Troubleshooting
+### Example Values:
 
-* **Simulation issues**: Ensure all dependencies are correctly installed by running `rosdep install --from-paths src`.
-* **RViz or Gazebo not launching**: Check ROS logs for error messages.
-* **Height adjustment not working**: Double-check the `xyz` values in the `gazebo_feetech.urdf` file.
+* To set the robot's height to 1.5 meters:
 
-## License
+  ```xml
+  <origin rpy="0 0 0" xyz="0 0 1.5" />
+  ```
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
-```
-
----
-
-### Key Sections Explained:
-
-- **Table of Contents**: Helps users navigate through the different sections of the README.
-- **Installation**: Clear step-by-step instructions for setting up ROS, MoveIt, and cloning/building the repository.
-- **Simulation Environment**: Describes the tools (RViz and Gazebo) and their usage.
-- **Adjusting Robot Height**: Guides users to modify the robot's height in the simulation environment.
-- **Troubleshooting**: Offers some common solutions to potential issues.
-
-This format is easy to follow, especially for new users setting up a simulation or dealing with common setup problems!
-```
