@@ -98,7 +98,6 @@ Feetech controls related files can be found at:
 ```
 .../catkin_ws/src/feetech 
 .../catkin_ws/src/feetech_controls 
-
 ```
 
 ### Adjusting Robot Height
