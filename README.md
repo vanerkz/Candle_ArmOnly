@@ -93,6 +93,14 @@ This will start both the **RViz** and **Gazebo** simulations, where you can cont
 * Product information can be found here:
   [Feetech RS485 Series Servos](https://www.feetechrc.com/products/sms_rs485_series%20servo-page-1)
 
+Feetech controls related files can be found at:
+
+```
+.../catkin_ws/src/feetech 
+.../catkin_ws/src/feetech_controls 
+
+```
+
 ### Adjusting Robot Height
 
 To adjust the height of the robot in the Gazebo simulation, modify the following line in the `gazebo_feetech.urdf` file:
