@@ -58,12 +58,12 @@ This will start both the **RViz** and **Gazebo** simulations, where you can cont
 
 * Used to control and visualize the robot.
 * Allows you to move the arm joints and visualize the results.
-![Robot Arm Simulation](images/rviz.png)
+![Robot Arm Simulation](images/rviz.gif)
 ### Gazebo:
 
 * Provides a realistic physics simulation of the robot's movements.
 * Displays the robot in a 3D environment.
-![Robot Arm Simulation](images/gazabo.png)
+![Robot Arm Simulation](images/gazabo.gif)
 
 ### Robot Description
 
