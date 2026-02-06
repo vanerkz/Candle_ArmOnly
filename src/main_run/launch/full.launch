@@ -1,0 +1,5 @@
+<launch>
+<include file ="$(find main_run)/launch/navi.launch" />
+<include file ="$(find main_run)/launch/arm.launch" />
+
+</launch>

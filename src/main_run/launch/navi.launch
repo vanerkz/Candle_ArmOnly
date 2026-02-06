@@ -1,0 +1,11 @@
+<launch>
+<include file ="$(find main_run)/launch/main_run.launch" />
+<include file ="$(find cartographer_ros)/launch/demo_backpack_2d_localization.launch" />
+
+<!-- move_base -->
+<include file="$(find main_run)/launch/move_base.launch"/>
+<node pkg="main_run" type="main_run_node" name="node" output="screen" />
+<node pkg="main_run" type="navicontroltopic" name="navicontroltopic" output="screen" />
+	<include file ="/home/robot/catkin_ws/src/pointcloud_to_laserscan-lunar-devel/launch/sample_node.launch"/>
+
+</launch>

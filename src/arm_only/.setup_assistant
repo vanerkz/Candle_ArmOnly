@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: urdf_tutorial
+    relative_path: urdf/feetecharm.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/feetech.srdf
+  CONFIG:
+    author_name: van
+    author_email: vanerkz@gmail.com
+    generated_timestamp: 1770300111

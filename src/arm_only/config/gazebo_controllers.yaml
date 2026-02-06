@@ -1,0 +1,30 @@
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+
+arm_position_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - joint_0
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+    gains:
+      joint_0: {p: 1.0, i: 0.01, d: 50.0, i_clamp: 1.0}
+      joint_1: {p: 1.0, i: 0.01, d: 50.0, i_clamp: 1.0}
+      joint_2: {p: 1.0, i: 0.01, d: 50.0, i_clamp: 1.0}
+      joint_3: {p: 1.0, i: 0.01, d: 50.0, i_clamp: 1.0}
+      joint_4: {p: 1.0, i: 0.01, d: 50.0, i_clamp: 1.0}
+      joint_5: {p: 1.0, i: 0.01, d: 50.0, i_clamp: 1.0}
+      joint_6: {p: 1.0, i: 0.01, d: 50.0, i_clamp: 1.0}
+
+    state_publish_rate: 50
+    constraints:
+      goal_time: 2.0  # Increase this if your joints are slow
+    tolerances:
+      position: 0.05 
+
