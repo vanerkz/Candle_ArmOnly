@@ -127,7 +127,7 @@ Example to change height:
   <origin rpy="0 0 0" xyz="0 0 1.5" />
   ```
 
-# MoveIt Robot Control via Python
+## MoveIt Robot Control via Python
 
 This repository demonstrates how to control a robot using **MoveIt’s Python Move Group Interface**, either by:
 
