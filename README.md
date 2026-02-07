@@ -31,7 +31,7 @@ mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
 
 # Clone the repository
-git clone <repository_url>
+git clone https://github.com/vanerkz/Candle_ArmOnly
 
 # Install dependencies
 cd ~/catkin_ws
@@ -61,7 +61,6 @@ This will start both the **RViz** and **Gazebo** simulations, where you can cont
 ![Robot Arm Simulation](images/rviz.gif)
 ### Gazebo:
 
-* Provides a realistic physics simulation of the robot's movements.
 * Displays the robot in a 3D environment.
 ![Robot Arm Simulation](images/gazabo.gif)
 
@@ -89,7 +88,7 @@ This will start both the **RViz** and **Gazebo** simulations, where you can cont
 * Product information can be found here:
   [Feetech RS485 Series Servos](https://www.feetechrc.com/products/sms_rs485_series%20servo-page-1)
 
-* Feetech control-related files can be found at [location]. (Note that you can ignore these files if you're not working with a physical robot.):
+* Feetech control-related files can be found at (Note that you can ignore these files if you're not working with a physical robot):
 
 ```
 .../catkin_ws/src/feetech 
