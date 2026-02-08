@@ -127,16 +127,22 @@ Example to change height:
   <origin rpy="0 0 0" xyz="0 0 1.5" />
   ```
 
+
 ## MoveIt Robot Control via Python
-
-This repository demonstrates how to control a robot using **MoveIt’s Python Move Group Interface**, either by:
-
-* **Setting an end-effector pose** (position & orientation), or
-* **Manually controlling individual joints**
-
 The examples are based on the official MoveIt tutorial:
-👉 [https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html](https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html)
+👉 [https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html](https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html). This code has been changed to suit our robot arm that allows you to:
 
+* Control the arm via individual joints.
+* Read and set the end-effector pose.
+* Plan and execute arm trajectories.
+
+### Run the Node
+
+To run the script:
+
+```bash
+rosrun moveit_robot_control move_group_python_interface_tutorial.py
+```
 
 
 
