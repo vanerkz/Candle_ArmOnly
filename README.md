@@ -129,8 +129,7 @@ Example to change height:
 
 
 ## MoveIt Robot Control via Python
-The examples are based on the official MoveIt tutorial:
-👉 [https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html](https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html). This code has been changed to suit our robot arm that allows you to:
+The examples are based on the official MoveIt tutorial: [https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html](https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html). This code has been changed to suit our robot arm that allows you to:
 
 * Control the arm via individual joints.
 * Read and set the end-effector pose.
