@@ -47,6 +47,5 @@ catkin_package(
 include_directories(${THIS_PACKAGE_INCLUDE_DIRS})
 include_directories(SYSTEM ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} ${EIGEN3_INCLUDE_DIRS})
 
-add_subdirectory(doc/move_group_interface)
 add_subdirectory(doc/move_group_python_interface)
 
