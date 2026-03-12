@@ -146,7 +146,7 @@ roslaunch moveit_tutorials move_group_python_interface_tutorial.launch
 ---
 ## Arm Hook and Drop Process
 
-This script uses an Intel RealSense Depth Camera mounted at the base_link frame to generate a point cloud. The RGB camera stream is also used to detect and localize ArUco markers. The scripts responsible for detecting ArUco markers and controlling the robotic arm when markers are detected are located in: ~/catkin_ws/src/aruco_detector/scripts.
+This section introduces the arm hook and drop process using ArUco markers localization. An Intel RealSense Depth Camera mounted near the base_link frame is used to generate a point cloud, while the RGB camera stream is used to detect and localize the markers. The scripts responsible for marker detection and robotic arm control are located in: ~/catkin_ws/src/aruco_detector/scripts.
 
 Run the following command to launch the arm simulation:
 
