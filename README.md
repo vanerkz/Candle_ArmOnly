@@ -178,8 +178,6 @@ rosrun gazebo_ros spawn_model \
 -x 0.5 -y 0 -z 0.5
 ```
 
----
-
 ### Delete the Spawned Marker
 
 To remove the marker from the Gazebo simulation, run:
