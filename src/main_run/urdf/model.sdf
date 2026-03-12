@@ -1,0 +1,30 @@
+<sdf version="1.6">
+  <model name="aruco_marker_23">
+    <static>true</static>
+    <link name="link">
+      <visual name="visual">
+        <geometry>
+          <plane>
+            <size>0.2 0.2</size>
+          </plane>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/White</name>
+          </script>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <texture>file://aruco_23.png</texture>
+        </material>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <size>0.2 0.2</size>
+          </plane>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

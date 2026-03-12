@@ -5,6 +5,11 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /MotionPlanning1
+        - /MotionPlanning1/Scene Geometry1
+        - /MotionPlanning1/Scene Robot1
+        - /MotionPlanning1/Planning Request1
+        - /PointCloud21
+        - /Pose1
       Splitter Ratio: 0.5
     Tree Height: 353
   - Class: rviz/Help
@@ -76,6 +81,15 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          realsense_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          realsense_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           servo_0:
             Alpha: 1
             Show Axes: false
@@ -166,6 +180,15 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          realsense_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          realsense_optical_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           servo_0:
             Alpha: 1
             Show Axes: false
@@ -210,6 +233,50 @@ Visualization Manager:
         Show Robot Visual: true
       Value: true
       Velocity_Scaling_Factor: 0.25
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
+      Topic: /realsense/points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.10000000149011612
+      Class: rviz/Pose
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.20000000298023224
+      Head Radius: 0.05000000074505806
+      Name: Pose
+      Queue Size: 10
+      Shaft Length: 0.20000000298023224
+      Shaft Radius: 0.004999999888241291
+      Shape: Arrow
+      Topic: /aruco_pose
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -226,7 +293,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2
+      Distance: 0.7099441289901733
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -234,17 +301,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.75
       Focal Point:
-        X: -0.26648879051208496
-        Y: 0.48822489380836487
-        Z: 0.8019775152206421
+        X: -0.07284528017044067
+        Y: 0.5394701957702637
+        Z: 0.7457015514373779
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5
+      Pitch: 0.18499989807605743
       Target Frame: world
-      Yaw: 5.659949779510498
+      Yaw: 1.9067647457122803
     Saved: ~
 Window Geometry:
   Displays:

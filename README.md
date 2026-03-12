@@ -126,10 +126,73 @@ Example to change height:
   ```xml
   <origin rpy="0 0 0" xyz="0 0 1.5" />
   ```
+---
 
+````markdown
+## Arm Hook and Drop Process
+
+Run the following command to launch the arm simulation:
+
+```bash
+roslaunch arm_only demo_gazebo_hook.launch
+````
+
+---
+
+## Spawn an ArUco Marker
+
+Before running the scripts below, add the following line to your `.bashrc` file so Gazebo can locate the custom models:
+
+```bash
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/<your_username>/catkin_ws/src/gazebo
+```
+
+Reload your shell to apply the changes:
+
+```bash
+source ~/.bashrc
+```
+
+When the ArUco marker is spawned, the robotic arm will automatically simulate a **hook-and-drop process**.
+
+You can spawn the marker at a desired position `(x, y, z)` using:
+
+```bash
+rosrun gazebo_ros spawn_model \
+-file ~/catkin_ws/src/gazebo/aruco_marker/model.sdf \
+-sdf \
+-model aruco_marker \
+-x 0.5 -y 0 -z 0.5
+```
+
+---
+
+## Delete the Spawned Marker
+
+To remove the marker from the Gazebo simulation, run:
+
+```bash
+rosservice call /gazebo/delete_model "model_name: 'aruco_marker'"
+```
+
+---
+
+## Simulation Preview
+
+### RViz
+
+![Robot Arm Simulation](images/hook_drop_rviz.gif)
+
+### Gazebo
+
+![Robot Arm Simulation](images/hook_drop_gazebo.gif)
+
+```
+
+---
 
 ## MoveIt Robot Control via Python
-The examples are based on the official MoveIt tutorial: [https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html](https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html). This code has been changed to suit our robot arm that allows you to:
+The examples are based on the official MoveIt tutorial:[https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html](https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html). This code has been changed to suit our robot arm that allows you to:
 
 * Control the arm via individual joints.
 * Read and set the end-effector pose.
@@ -140,7 +203,8 @@ The examples are based on the official MoveIt tutorial: [https://moveit.github.i
 To run the script:
 
 ```bash
-rosrun moveit_robot_control move_group_python_interface_tutorial.py
+roslaunch moveit_tutorials move_group_python_interface_tutorial.launch 
+
 ```
 
 
