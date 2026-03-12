@@ -128,6 +128,22 @@ Example to change height:
   ```
 ---
 
+## MoveIt Robot Control via Python
+The examples are based on the official MoveIt tutorial:[https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html](https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html). This code has been changed to suit our robot arm that allows you to:
+
+* Control the arm via individual joints.
+* Read and set the end-effector pose.
+* Plan and execute arm trajectories.
+
+### Run the Node
+
+To run the script:
+
+```bash
+roslaunch moveit_tutorials move_group_python_interface_tutorial.launch 
+
+```
+
 ````markdown
 ## Arm Hook and Drop Process
 
@@ -189,23 +205,6 @@ rosservice call /gazebo/delete_model "model_name: 'aruco_marker'"
 
 ```
 
----
-
-## MoveIt Robot Control via Python
-The examples are based on the official MoveIt tutorial:[https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html](https://moveit.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html). This code has been changed to suit our robot arm that allows you to:
-
-* Control the arm via individual joints.
-* Read and set the end-effector pose.
-* Plan and execute arm trajectories.
-
-### Run the Node
-
-To run the script:
-
-```bash
-roslaunch moveit_tutorials move_group_python_interface_tutorial.launch 
-
-```
 
 
 
