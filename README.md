@@ -144,18 +144,15 @@ roslaunch moveit_tutorials move_group_python_interface_tutorial.launch
 
 ```
 
-````markdown
 ## Arm Hook and Drop Process
 
 Run the following command to launch the arm simulation:
 
 ```bash
 roslaunch arm_only demo_gazebo_hook.launch
-````
+```
 
----
-
-## Spawn an ArUco Marker
+### Spawn an ArUco Marker
 
 Before running the scripts below, add the following line to your `.bashrc` file so Gazebo can locate the custom models:
 
@@ -183,17 +180,13 @@ rosrun gazebo_ros spawn_model \
 
 ---
 
-## Delete the Spawned Marker
+### Delete the Spawned Marker
 
 To remove the marker from the Gazebo simulation, run:
 
 ```bash
 rosservice call /gazebo/delete_model "model_name: 'aruco_marker'"
 ```
-
----
-
-## Simulation Preview
 
 ### RViz
 
@@ -202,8 +195,6 @@ rosservice call /gazebo/delete_model "model_name: 'aruco_marker'"
 ### Gazebo
 
 ![Robot Arm Simulation](images/hook_drop_gazebo.gif)
-
-```
 
 
 
