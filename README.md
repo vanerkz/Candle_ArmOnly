@@ -143,7 +143,7 @@ To run the script:
 roslaunch moveit_tutorials move_group_python_interface_tutorial.launch 
 
 ```
-
+---
 ## Arm Hook and Drop Process
 
 Run the following command to launch the arm simulation:
