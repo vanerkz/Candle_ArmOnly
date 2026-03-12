@@ -188,11 +188,11 @@ To remove the marker from the Gazebo simulation, run:
 rosservice call /gazebo/delete_model "model_name: 'aruco_marker'"
 ```
 
-### RViz
+### RViz hook and drop simulation
 
 ![Robot Arm Simulation](images/hook_drop_rviz.gif)
 
-### Gazebo
+### Gazebo hook and drop simulation
 
 ![Robot Arm Simulation](images/hook_drop_gazebo.gif)
 
