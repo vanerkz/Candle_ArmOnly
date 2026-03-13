@@ -189,11 +189,12 @@ rosservice call /gazebo/delete_model "model_name: 'aruco_marker'"
 ```
 
 ### RViz hook and drop simulation
+The process is as follows: Spawn ArUco marker-> detected marker-> arm hook and drop process.
 
 ![Robot Arm Simulation](images/hook_drop_rviz.gif)
 
 ### Gazebo hook and drop simulation
-
+The process is as follows: Spawn ArUco marker-> detected marker-> arm hook and drop process.
 ![Robot Arm Simulation](images/hook_drop_gazebo.gif)
 
 
