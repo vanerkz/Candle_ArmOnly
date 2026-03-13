@@ -100,12 +100,12 @@ class ArucoArmMove(object):
         self.go_to_pose_goal()
 
     def go_to_pose_goal(self):
-        self.aruco_pose.pose.position.z-=0.075 # offseting
-        self.aruco_pose.pose.position.y-=0.075
+        self.aruco_pose.pose.position.z-=0.075 # z offseting from the received aruco pose
+        self.aruco_pose.pose.position.y-=0.075 # y offseting from the received aruco pose
         if self.aruco_pose is None:
             return
 
-        # change frame id to match the robot arm
+        # change frame id to match the robot arm, otherwise the arm won't not work
         try:
             pose_world = self.tf_buffer.transform(
                 self.aruco_pose,
