@@ -57,18 +57,6 @@ class ArucoArmMove(object):
         group_name = "feetech_arm"
         move_group = moveit_commander.MoveGroupCommander(group_name)
 
-        ## Create a `DisplayTrajectory`_ ROS publisher which is used to display
-        ## trajectories in Rviz:
-        display_trajectory_publisher = rospy.Publisher(
-            "/move_group/display_planned_path",
-            moveit_msgs.msg.DisplayTrajectory,
-            queue_size=20,
-        )
-
-        ## END_SUB_TUTORIAL
-
-        ## BEGIN_SUB_TUTORIAL basic_info
-        ##
         ## Getting Basic Information
         ## ^^^^^^^^^^^^^^^^^^^^^^^^^
         # We can get the name of the reference frame for this robot:
@@ -90,7 +78,6 @@ class ArucoArmMove(object):
         self.box_name = ""
         self.robot = robot
         self.move_group = move_group
-        self.display_trajectory_publisher = display_trajectory_publisher
         self.planning_frame = planning_frame
         self.group_names = group_names
         self.aruco_pose = None
