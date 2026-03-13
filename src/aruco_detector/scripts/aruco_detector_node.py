@@ -3,7 +3,6 @@
 import rospy
 import cv2
 import numpy as np
-
 from sensor_msgs.msg import Image, CameraInfo
 from geometry_msgs.msg import PoseStamped
 from cv_bridge import CvBridge
@@ -65,7 +64,6 @@ class ArucoDetector:
 
         self.camera_matrix = np.array(msg.K).reshape(3,3)
         self.dist_coeffs = np.array(msg.D)
-
         rospy.loginfo_once("Camera calibration received")
 
 

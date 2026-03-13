@@ -176,7 +176,7 @@ class ArucoArmMove(object):
 
             #manually change each joint, rotate arm
             joint_goal = self.move_group.get_current_joint_values()
-            joint_goal[0] = -1.250
+            joint_goal[0] = -1.250 # change here to rotate first joint from the base
             joint_goal[1] = 1.515
             joint_goal[2] = 0.125
             joint_goal[3] = -1.135
@@ -194,10 +194,8 @@ class ArucoArmMove(object):
             joint_goal[2] = 0.125
             joint_goal[3] = -1.135
             joint_goal[4] = -0.018
-            joint_goal[5] = 0
+            joint_goal[5] = 0       # change here to rotate the last 2nd joint to drop item
             joint_goal[6] = 0.055
-
-
             self.move_group.go(joint_goal, wait=True)
             self.move_group.stop()
         else:
