@@ -113,11 +113,12 @@ class ArucoArmMove(object):
         self.go_to_pose_goal()
 
     def go_to_pose_goal(self):
-        self.aruco_pose.pose.position.z-=0.075
+        self.aruco_pose.pose.position.z-=0.075 # offseting
         self.aruco_pose.pose.position.y-=0.075
         if self.aruco_pose is None:
             return
 
+        # change frame id to match the robot arm
         try:
             pose_world = self.tf_buffer.transform(
                 self.aruco_pose,
@@ -128,7 +129,7 @@ class ArucoArmMove(object):
             rospy.logwarn("Transform failed: %s", e)
             return
 
-        # approach offset
+        
         pose_world=offset_pose_local(pose_world,0,0,0)
 
         self.move_group.set_start_state_to_current_state()
@@ -144,18 +145,16 @@ class ArucoArmMove(object):
 
         if success:
             rospy.loginfo("Motion executed")
-            waypoints = []
 
+            #cartesian movement
+            waypoints = []
+            
             wpose = self.move_group.get_current_pose().pose
             wpose.position.x += 0.03
             waypoints.append(copy.deepcopy(wpose))
             wpose.position.z += 0.05
             waypoints.append(copy.deepcopy(wpose))
-            # We want the Cartesian path to be interpolated at a resolution of 1 cm
-            # which is why we will specify 0.01 as the eef_step in Cartesian
-            # translation.  We will disable the jump threshold by setting it to 0.0,
-            # ignoring the check for infeasible jumps in joint space, which is sufficient
-            # for this tutorial.
+ 
             (plan, fraction) = self.move_group.compute_cartesian_path(
                 waypoints, 0.01  # waypoints to follow  # eef_step
             )
@@ -163,6 +162,7 @@ class ArucoArmMove(object):
             self.move_group.stop()
             self.move_group.clear_pose_targets()
 
+            #manually change each joint, 
             joint_goal = self.move_group.get_current_joint_values()
             joint_goal[0] = -0.088
             joint_goal[1] = 1.515
@@ -171,14 +171,10 @@ class ArucoArmMove(object):
             joint_goal[4] = -0.018
             joint_goal[5] = -1.608
             joint_goal[6] = 0.055
-
-            # The go command can be called with joint values, poses, or without any
-            # parameters if you have already set the pose or joint target for the group
             self.move_group.go(joint_goal, wait=True)
-
-            # Calling ``stop()`` ensures that there is no residual movement
             self.move_group.stop()
 
+            #manually change each joint, rotate arm
             joint_goal = self.move_group.get_current_joint_values()
             joint_goal[0] = -1.250
             joint_goal[1] = 1.515
@@ -188,13 +184,10 @@ class ArucoArmMove(object):
             joint_goal[5] = -1.608
             joint_goal[6] = 0.055
 
-            # The go command can be called with joint values, poses, or without any
-            # parameters if you have already set the pose or joint target for the group
             self.move_group.go(joint_goal, wait=True)
-
-            # Calling ``stop()`` ensures that there is no residual movement
             self.move_group.stop()
 
+            #manually change each joint, drop
             joint_goal = self.move_group.get_current_joint_values()
             joint_goal[0] = -1.250
             joint_goal[1] = 1.515
@@ -204,78 +197,11 @@ class ArucoArmMove(object):
             joint_goal[5] = 0
             joint_goal[6] = 0.055
 
-            # The go command can be called with joint values, poses, or without any
-            # parameters if you have already set the pose or joint target for the group
-            self.move_group.go(joint_goal, wait=True)
 
-            # Calling ``stop()`` ensures that there is no residual movement
+            self.move_group.go(joint_goal, wait=True)
             self.move_group.stop()
         else:
             rospy.logwarn("Motion failed")
-
-        
-        
-
-    
-
-    def plan_cartesian_path(self, scale=1):
-        # Copy class variables to local variables to make the web tutorials more clear.
-        # In practice, you should use the class variables directly unless you have a good
-        # reason not to.
-        move_group = self.move_group
-
-        ## BEGIN_SUB_TUTORIAL plan_cartesian_path
-        ##
-        ## Cartesian Paths
-        ## ^^^^^^^^^^^^^^^
-        ## You can plan a Cartesian path directly by specifying a list of waypoints
-        ## for the end-effector to go through. If executing  interactively in a
-        ## Python shell, set scale = 1.0.
-        ##
-        waypoints = []
-
-        wpose = move_group.get_current_pose().pose
-        wpose.position.z -= scale * 0.1  # First move up (z)
-        wpose.position.y += scale * 0.2  # and sideways (y)
-        waypoints.append(copy.deepcopy(wpose))
-
-        wpose.position.x += scale * 0.1  # Second move forward/backwards in (x)
-        waypoints.append(copy.deepcopy(wpose))
-
-        wpose.position.y -= scale * 0.1  # Third move sideways (y)
-        waypoints.append(copy.deepcopy(wpose))
-
-        # We want the Cartesian path to be interpolated at a resolution of 1 cm
-        # which is why we will specify 0.01 as the eef_step in Cartesian
-        # translation.  We will disable the jump threshold by setting it to 0.0,
-        # ignoring the check for infeasible jumps in joint space, which is sufficient
-        # for this tutorial.
-        (plan, fraction) = move_group.compute_cartesian_path(
-            waypoints, 0.01  # waypoints to follow  # eef_step
-        )
-
-        # Note: We are just planning, not asking move_group to actually move the robot yet:
-        return plan, fraction
-
-        ## END_SUB_TUTORIAL
-
-    def execute_plan(self, plan):
-        # Copy class variables to local variables to make the web tutorials more clear.
-        # In practice, you should use the class variables directly unless you have a good
-        # reason not to.
-        move_group = self.move_group
-
-        ## BEGIN_SUB_TUTORIAL execute_plan
-        ##
-        ## Executing a Plan
-        ## ^^^^^^^^^^^^^^^^
-        ## Use execute if you would like the robot to follow
-        ## the plan that has already been computed:
-        move_group.execute(plan, wait=True)
-
-        ## **Note:** The robot's current joint state must be within some tolerance of the
-        ## first waypoint in the `RobotTrajectory`_ or ``execute()`` will fail
-        ## END_SUB_TUTORIAL
 
 
 def main():
